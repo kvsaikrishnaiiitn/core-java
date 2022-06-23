@@ -8,9 +8,9 @@ public class HashSetCheck {
 		Set<Integer> hashSet = new HashSet<>();
 
 		hashSet.add(1);
-		hashSet.add(2);
-		hashSet.add(3);
-		hashSet.add(4);
+		hashSet.add(29);
+		hashSet.add(31);
+		hashSet.add(40);
 
 		System.out.println("HashSetCheck.main()...hashSet:" + hashSet);
 		

@@ -11,15 +11,15 @@ public class HashMapCheck {
 		hashMap.put(null, "null");
 		hashMap.put(null, "null2");
 		
-		hashMap.get("Cms");
+		System.out.println(hashMap.get("Cms"));
 
 		System.out.println(hashMap);
 
 		Hashtable<String, String> hashtable = new Hashtable<>();
 		hashtable.put("Cms", "Cms");
-		hashtable.put(null, null);
+		//hashtable.put(null, null);
 
-		hashtable.get("Cms");
+		System.out.println(hashtable.get("Cms"));
 		
 		System.out.println(hashtable);
 		
@@ -27,9 +27,9 @@ public class HashMapCheck {
 
 		ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
 		concurrentHashMap.put("Cms", "Cms");
-		concurrentHashMap.put(null, null);
+		//concurrentHashMap.put(null, null);
 
-		concurrentHashMap.get("Cms");
+		System.out.println(concurrentHashMap.get("Cms"));
 		
 		System.out.println(concurrentHashMap);
 

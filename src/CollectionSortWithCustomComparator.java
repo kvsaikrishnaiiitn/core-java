@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class CollectionSortWithCustomComparator {
@@ -15,7 +14,8 @@ public class CollectionSortWithCustomComparator {
 		numbers.add(5);
 
 		System.out.println(numbers);
-		Collections.sort(numbers, Comparator.naturalOrder());
+		// Collections.sort(numbers, Comparator.reverseOrder());
+		Collections.sort(numbers, (i, j) -> j - i);
 		System.out.println(numbers);
 
 	}

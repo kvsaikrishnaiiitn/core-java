@@ -20,8 +20,13 @@ public class EmployeeByDepartment {
 
 		// Employees in each department
 
+		/*
+		 * Map<String, List<Employee>> employeeListByEachDept = empList.stream()
+		 * .collect(Collectors.groupingBy(Employee::getDepartment,
+		 * Collectors.toList()));
+		 */
 		Map<String, List<Employee>> employeeListByEachDept = empList.stream()
-				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.toList()));
+				.collect(Collectors.groupingBy(Employee::getDepartment));
 
 		employeeListByEachDept.entrySet().forEach(entry -> {
 			System.out.println(entry.getKey() + "->" + entry.getValue());
@@ -43,10 +48,27 @@ public class EmployeeByDepartment {
 		// Max, Min salary employees
 
 		Optional<Employee> maxSalaryEmployee = empList.stream().max(Comparator.comparing(Employee::getSalary));
+		/*
+		 * Optional<Employee> maxSalaryEmployee = empList.stream().max((emp1, emp2) ->
+		 * emp1.getSalary() - emp2.getSalary());
+		 */
 		Optional<Employee> minSalaryEmployee = empList.stream().min(Comparator.comparing(Employee::getSalary));
 
-		System.out.println(maxSalaryEmployee);
-		System.out.println(minSalaryEmployee);
+		maxSalaryEmployee.ifPresent(System.out::println);
+		/* minSalaryEmployee.ifPresent(System.out::println); */
+
+		/*
+		 * if (maxSalaryEmployee.isPresent()) { Employee maxSalary =
+		 * maxSalaryEmployee.get(); System.out.println(maxSalary); }
+		 */
+
+		if (minSalaryEmployee.isPresent()) {
+			Employee minSalary = minSalaryEmployee.get();
+			System.out.println(minSalary);
+		}
+
+		// System.out.println(maxSalaryEmployee);
+		// System.out.println(minSalaryEmployee);
 
 		System.out.println("------------------");
 
@@ -63,10 +85,8 @@ public class EmployeeByDepartment {
 		// Max salary of each Department
 
 		Map<String, Optional<Employee>> maxSalaryEmployeeByEachDept = empList.stream()
-				.filter(e -> e.getStatus().equals("active")).collect(Collectors.groupingBy(Employee::getDepartment,
+				.collect(Collectors.groupingBy(Employee::getDepartment,
 						Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::getSalary)))));
-
 		maxSalaryEmployeeByEachDept.entrySet().forEach(e -> System.out.println(e.getKey() + "->" + e.getValue()));
-
 	}
 }
