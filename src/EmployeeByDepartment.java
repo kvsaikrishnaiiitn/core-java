@@ -84,9 +84,25 @@ public class EmployeeByDepartment {
 
 		// Max salary of each Department
 
-		Map<String, Optional<Employee>> maxSalaryEmployeeByEachDept = empList.stream()
+		Map<String, Optional<Employee>> maxSalaryForEachDept = empList.stream()
 				.collect(Collectors.groupingBy(Employee::getDepartment,
 						Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::getSalary)))));
-		maxSalaryEmployeeByEachDept.entrySet().forEach(e -> System.out.println(e.getKey() + "->" + e.getValue()));
+		
+		empList.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::getSalary)))));
+
+		empList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+				Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::getSalary)))));
+
+		maxSalaryForEachDept.entrySet().forEach(e -> {
+			System.out.print(e.getKey() + "->" + e.getValue());
+		});
+
+		/*
+		 * Map<String, Optional<Employee>> maxSalaryEmployeeByEachDept =
+		 * empList.stream() .collect(Collectors.groupingBy(Employee::getDepartment,
+		 * Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Employee::
+		 * getSalary))))); maxSalaryEmployeeByEachDept.entrySet().forEach(e ->
+		 * System.out.println(e.getKey() + "->" + e.getValue()));
+		 */
 	}
 }

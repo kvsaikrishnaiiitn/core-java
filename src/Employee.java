@@ -68,4 +68,10 @@ public class Employee {
 		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", department=" + department
 				+ ", status=" + status + "]";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
 }

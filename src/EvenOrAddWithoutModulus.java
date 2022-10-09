@@ -2,7 +2,7 @@
 public class EvenOrAddWithoutModulus {
 	
 	public static void main(String[] args) {
-		int n = 3;
+		int n = 4;
 		int quotient = n/2;
 		
 		System.out.println((quotient * 2)==n);

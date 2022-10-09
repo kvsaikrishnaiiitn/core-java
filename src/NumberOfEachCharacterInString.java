@@ -11,6 +11,12 @@ public class NumberOfEachCharacterInString {
 		Map<Character, Long> eachCharCount = string.chars().mapToObj(i -> Character.valueOf((char) i))
 				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
 
+		/*
+		 * System.out.println(string.chars().mapToObj(i -> Character.valueOf((char) i))
+		 * .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new,
+		 * Collectors.counting())));
+		 */
+
 		System.out.println(eachCharCount);
 
 	}
